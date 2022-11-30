@@ -23,12 +23,24 @@ socket.on('userID', function (socketId) {
 
 // listen for what your socket ID is so you know who you are in the object
 socket.on('disCount', function (disCount) {
+  //   if (disCount < 2) {
+  //     joinDis.style.visibility = "visible";
+  //   } else {
+  //     joinDis.style.visibility = "hidden";
+  //   }
+  // });
+
   if (disCount < 2) {
-    joinDis.style.visibility = "visible";
+    joinDis.innerHTML = 'Join the Dissonance';
   } else {
-    joinDis.style.visibility = "hidden";
+    joinDis.innerHTML = "Room is Full";
+     joinDis.style.pointerEvents = 'none';
+     joinDis.style.color = 'rgb(168,169,173)';
+    //  style.pointerEvent = none;
   }
 });
+
+
 
 // listen for what your socket ID is so you know who you are in the object
 socket.on('playerStatus', function (playerStatus) {
